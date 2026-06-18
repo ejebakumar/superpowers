@@ -1,5 +1,5 @@
 ---
-name: degreed-design
+name: degreed-design-system
 description: Use when building or styling Degreed-branded interfaces or assets — production UI or throwaway prototypes/mocks — and you need the brand's design guidelines, colors, typography, fonts, assets, or UI kit components.
 user-invocable: true
 ---

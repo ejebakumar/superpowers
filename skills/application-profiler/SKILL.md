@@ -1,5 +1,5 @@
 ---
-name: profiling-application-performance
+name: application-profiler
 description: Use when the user asks to "profile application", "analyze performance", or "find bottlenecks", or mentions symptoms like high CPU usage, memory leaks, or slow execution time.
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 version: 1.0.0

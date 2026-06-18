@@ -1,5 +1,5 @@
 ---
-name: doc:adr
+name: adr
 description: Use when an architectural or technical decision needs to be recorded, or when the user asks for an ADR or to compare approaches before committing to one.
 model: sonnet
 allowed-tools: [TaskCreate, TaskUpdate, TaskList, Read, Write, Edit, Bash]
