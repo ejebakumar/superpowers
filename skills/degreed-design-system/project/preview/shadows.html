@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Shadows</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px 18px; background: #FBFBFB; font-family: var(--font-sans); }
+  .grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+  .tile { background: #fff; border-radius: 8px; height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .name { font-size: 12px; font-weight: 600; color: var(--fg-strong); }
+  .use { font-size: 10px; color: var(--fg-muted); font-family: var(--font-mono); margin-top: 2px; }
+</style></head><body>
+<div class="grid">
+  <div class="tile" style="box-shadow: 0 1px 2px rgba(53,60,66,0.08); border:1px solid var(--border-default)"><div class="name">sm</div><div class="use">card resting</div></div>
+  <div class="tile" style="box-shadow: 0 1px 2px rgba(53,60,66,0.24)"><div class="name">md</div><div class="use">menus</div></div>
+  <div class="tile" style="box-shadow: 0 4px 6px -1px rgba(53,60,66,0.10), 0 2px 4px -2px rgba(53,60,66,0.05)"><div class="name">lg</div><div class="use">card hover</div></div>
+  <div class="tile" style="box-shadow: 0 10px 15px -3px rgba(53,60,66,0.10), 0 4px 6px rgba(53,60,66,0.05)"><div class="name">xl</div><div class="use">popover</div></div>
+  <div class="tile" style="box-shadow: 0 20px 25px -5px rgba(53,60,66,0.10), 0 10px 10px rgba(53,60,66,0.04)"><div class="name">2xl</div><div class="use">modal</div></div>
+</div>
+</body></html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Badges & chips</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px; background: #fff; font-family: var(--font-sans); }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border-radius: 9999px; font: 590 12px/1 var(--font-sans); }
+  .chip.subtle { background: #F4F6F7; color: #44515A; border: 1px solid #E2E8EB; }
+  .chip.brand { background: #E9F7FE; color: #0D4A9B; }
+  .chip.success { background: #F0FDF4; color: #1A8244; }
+  .chip.warning { background: #FFFDE7; color: #A66202; }
+  .chip.danger { background: #FFF0F2; color: #DE0546; }
+  .chip.outline { background: #fff; color: #44515A; border: 1px solid #C9D3D8; }
+  .chip.solid { background: #0062E3; color: #fff; }
+  .skill { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 4px 0 12px; border-radius: 9999px; background: #fff; border: 1px solid #C9D3D8; font: 590 13px/1 var(--font-sans); color: #0F1F2C; }
+  .skill .lvl { background: #0062E3; color: #fff; padding: 4px 8px; border-radius: 9999px; font-size: 11px; font-weight: 700; }
+  .lbl { font-size: 11px; color: var(--fg-muted); font-family: var(--font-mono); margin-right: 4px; }
+</style></head><body>
+<div class="row"><span class="lbl">status</span>
+  <span class="chip subtle">Draft</span>
+  <span class="chip brand">In progress</span>
+  <span class="chip success">Complete</span>
+  <span class="chip warning">Due soon</span>
+  <span class="chip danger">Overdue</span>
+</div>
+<div class="row"><span class="lbl">filter</span>
+  <span class="chip outline">All</span>
+  <span class="chip solid">Courses</span>
+  <span class="chip outline">Articles</span>
+  <span class="chip outline">Videos</span>
+</div>
+<div class="row"><span class="lbl">skill</span>
+  <span class="skill">React <span class="lvl">5</span></span>
+  <span class="skill">SQL <span class="lvl">3</span></span>
+  <span class="skill">Leadership <span class="lvl">2</span></span>
+</div>
+</body></html>

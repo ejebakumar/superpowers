@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Degreed Web — UI Kit</title>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;590;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #FBFBFB; font-family: 'Inter', sans-serif; color: #0F1F2C; }
+    .page { max-width: 1280px; margin: 0 auto; padding: 32px 24px 80px; }
+    .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .row3 { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+    section { margin-bottom: 40px; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="Primitives.jsx"></script>
+  <script type="text/babel" src="TopNav.jsx"></script>
+  <script type="text/babel" src="HomeBlocks.jsx"></script>
+  <script type="text/babel" src="MaestroPanel.jsx"></script>
+
+  <script type="text/babel">
+    const recs = [
+      { type: 'Course',   title: 'Designing Data-Intensive Applications', provider: 'O\u2019Reilly',  duration: '6h 40m', rating: '4.8', icon: 'course' },
+      { type: 'Pathway',  title: 'Become a Staff Engineer',                provider: 'Degreed',     duration: '12h',     rating: '4.6', icon: 'page', illust: 'mountain-path' },
+      { type: 'Article',  title: 'How great PMs make decisions under uncertainty', provider: 'HBR', duration: '12 min', rating: '4.9', icon: 'article' },
+      { type: 'Video',    title: 'A short, friendly introduction to LLMs', provider: 'YouTube',  duration: '24 min',  rating: '4.7', icon: 'video' },
+    ];
+
+    const continuing = {
+      type: 'Course', title: 'Practical SQL for Analysts',
+      provider: 'Coursera', icon: 'course', remaining: '3h',
+    };
+
+    const App = () => {
+      const [maestroOpen, setMaestro] = React.useState(false);
+      const [query, setQuery] = React.useState('');
+      const user = { name: 'Jordan Diaz' };
+
+      return (
+        <div data-screen-label="01 Home">
+          <TopNav user={user} query={query} setQuery={setQuery} onMaestro={() => setMaestro(true)} />
+          <div className="page">
+
+            <HeroGreeting name={user.name.split(' ')[0]} />
+
+            <section>
+              <SectionHeader eyebrow="Continue" title="Up next in your plan" action={
+                <Button variant="ghost" icon="arrow-right">View all</Button>
+              } />
+              <ContinueRow item={continuing} progress={68} />
+            </section>
+
+            <section>
+              <SectionHeader eyebrow="Recommended" title="Picked for you" action={
+                <Button variant="secondary" icon="dart" onClick={() => setMaestro(true)}>Refine with Maestro</Button>
+              } />
+              <div className="row">
+                {recs.map((r, i) => <ContentCard key={i} item={r} />)}
+              </div>
+            </section>
+
+            <section className="row3">
+              <div>
+                <SectionHeader eyebrow="Pathways" title="Build a deeper specialty" />
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                  <Card padding={20}>
+                    <Eyebrow color="#0062E3">PATHWAY · 8 ITEMS</Eyebrow>
+                    <h3 style={{ margin: '8px 0 8px', font: '700 18px/24px Inter', color: '#0F1F2C' }}>Modern Data Analytics</h3>
+                    <p style={{ margin: '0 0 16px', font: '400 13px/20px Inter', color: '#44515A' }}>
+                      A focused sequence covering SQL, statistics, dashboards, and storytelling.
+                    </p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <div style={{ display: 'flex' }}>
+                        <Avatar name="AB" size={24} ring />
+                        <div style={{ marginLeft: -8 }}><Avatar name="CD" size={24} ring /></div>
+                        <div style={{ marginLeft: -8 }}><Avatar name="EF" size={24} ring /></div>
+                      </div>
+                      <span style={{ font: '500 12px/1 Inter', color: '#5B737F' }}>1,240 learners</span>
+                    </div>
+                  </Card>
+                  <Card padding={20}>
+                    <Eyebrow color="#C3008D">PATHWAY · 12 ITEMS</Eyebrow>
+                    <h3 style={{ margin: '8px 0 8px', font: '700 18px/24px Inter', color: '#0F1F2C' }}>Leadership for ICs</h3>
+                    <p style={{ margin: '0 0 16px', font: '400 13px/20px Inter', color: '#44515A' }}>
+                      Influence without authority. Run great meetings. Give better feedback.
+                    </p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                      <div style={{ display: 'flex' }}>
+                        <Avatar name="GH" size={24} ring />
+                        <div style={{ marginLeft: -8 }}><Avatar name="IJ" size={24} ring /></div>
+                      </div>
+                      <span style={{ font: '500 12px/1 Inter', color: '#5B737F' }}>847 learners</span>
+                    </div>
+                  </Card>
+                </div>
+              </div>
+              <div>
+                <SectionHeader eyebrow="Skills" title="Your review" />
+                <SkillReview />
+              </div>
+            </section>
+
+          </div>
+
+          <MaestroPanel open={maestroOpen} onClose={() => setMaestro(false)} />
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+  </script>
+</body>
+</html>
