@@ -18,19 +18,21 @@ plugin (Earnest's Jira-Epic→PR feature pipeline, originally `dfranklin07/ai_na
 - **Hooks are NOT auto-wired.** The maestro hooks hardcode Degreed repo names
   (`degreed-coach-builder`, `Degreed`, `fe-workspace`, `degreed-flutter`, `degreed-assistant`)
   and `docs/plans/*` paths, so auto-firing them globally would leak Degreed context into every
-  project. They are kept under `hooks/maestro/` as **opt-in**. To enable, add to your
-  project `.claude/settings.json` (mirrors the original `ai_native/.claude/settings.json`):
+  project. They are kept under `hooks/maestro/` as **opt-in**. To enable them while
+  working from this checkout, add to your project `.claude/settings.json`:
   ```json
   { "hooks": {
       "PreToolUse": [
-        { "matcher": "Bash", "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/pretooluse-security.sh" }] },
-        { "matcher": "Edit|Write|MultiEdit", "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/pretool-plan-discipline.sh" }] }
+        { "matcher": "Bash", "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/hooks/maestro/pretooluse-security.sh" }] },
+        { "matcher": "Edit|Write|MultiEdit", "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/hooks/maestro/pretool-plan-discipline.sh" }] }
       ],
-      "PostToolUse": [ { "matcher": "Skill", "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/posttool-skill-log.sh" }] } ],
-      "UserPromptSubmit": [ { "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/userpromptsubmit-context.sh" }] } ],
-      "SubagentStop": [ { "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/subagentstop-validate.sh" }] } ]
+      "PostToolUse": [ { "matcher": "Skill", "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/hooks/maestro/posttool-skill-log.sh" }] } ],
+      "UserPromptSubmit": [ { "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/hooks/maestro/userpromptsubmit-context.sh" }] } ],
+      "SubagentStop": [ { "hooks": [{ "type": "command", "command": "$CLAUDE_PROJECT_DIR/hooks/maestro/subagentstop-validate.sh" }] } ]
   } }
   ```
+  If you copy these hooks into another repo's `.claude/hooks/` directory instead, update
+  the paths in that repo's settings to match the copied location.
 - **`degreed-design-system`**: source had a redundant nested copy (removed) and kept its
   `SKILL.md` under `project/`. A copy was surfaced to the skill root for discovery; asset
   paths inside still reference `project/` and are verified during style adaptation.

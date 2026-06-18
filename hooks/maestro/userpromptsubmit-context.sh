@@ -6,7 +6,9 @@
 # =============================================================================
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-WS="$(cd "$SCRIPT_DIR/../.." && pwd)"
+# Plugin layout: hooks/maestro/<script> → workspace root is three levels up
+# (hooks/maestro → hooks → plugin root → workspace dir holding the sibling repos).
+WS="$(cd "$SCRIPT_DIR/../../.." && pwd)"
 
 context=""
 

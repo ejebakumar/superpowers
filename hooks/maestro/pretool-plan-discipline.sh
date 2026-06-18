@@ -7,31 +7,48 @@
 #   2. WARNS when a worktree edit happens after a feat:/fix: commit but no
 #      newer plan: commit (i.e. likely undocumented drift).
 #
-# Exit codes follow Claude Code convention:
-#   0 — allow (warnings are stderr only, non-blocking)
-#   2 — block (stderr message surfaced to the model)
+# Output follows the Claude Code PreToolUse contract:
+#   allow — echo the original hook JSON to stdout and exit 0
+#   block — echo the original hook JSON to stdout, write reason to stderr, exit 2
 #
 # Fail-open: if jq is missing or input is unparseable, exit 0 with a warning.
 
 set -uo pipefail
 
+HOOK_INPUT="$(cat)"
 INPUT="${CLAUDE_TOOL_INPUT:-}"
+
+pass_through() {
+  [ -n "$HOOK_INPUT" ] && printf '%s\n' "$HOOK_INPUT"
+  exit 0
+}
+
+block() {
+  local reason="$1"
+  [ -n "$HOOK_INPUT" ] && printf '%s\n' "$HOOK_INPUT"
+  echo "$reason" >&2
+  exit 2
+}
 
 # Fail-open if jq is missing.
 if ! command -v jq >/dev/null 2>&1; then
   echo "pretool-plan-discipline: jq not installed — skipping plan-discipline checks" >&2
-  exit 0
+  pass_through
 fi
 
-# Fail-open if input is empty / unparseable.
+if [ -n "$HOOK_INPUT" ]; then
+  INPUT="$HOOK_INPUT"
+fi
+
+# Fail-open if input is empty.
 if [ -z "$INPUT" ]; then
-  exit 0
+  pass_through
 fi
 
-FILE_PATH=$(echo "$INPUT" | jq -r '.file_path // .path // empty' 2>/dev/null || true)
+FILE_PATH=$(echo "$INPUT" | jq -r '.tool_input.file_path // .tool_input.path // .file_path // .path // empty' 2>/dev/null || true)
 if [ -z "$FILE_PATH" ]; then
   # MultiEdit may put the path elsewhere; fail-open.
-  exit 0
+  pass_through
 fi
 
 # Marker-file pattern: /update-plan command creates this lock before editing.
@@ -45,15 +62,15 @@ PLAN_AMEND_LOCK="$PROJECT_DIR/.claude/.plan-amend.lock"
 case "$FILE_PATH" in
   *docs/plans/*-plan.md|*/docs/plans/*-plan.md)
     if [ ! -f "$PLAN_AMEND_LOCK" ]; then
-      cat >&2 <<EOF
-BLOCKED: Direct edits to plan files are forbidden.
+      block "$(cat <<EOF
+Direct edits to plan files are forbidden.
 File: $FILE_PATH
 Use the /update-plan slash command to amend the plan. The command will create
 $PLAN_AMEND_LOCK to authorize the edit, commit the plan-only change, then
 remove the lock. Plan amendments must precede any code changes per the Plan
 Adherence Contract.
 EOF
-      exit 2
+)"
     fi
     ;;
 esac
@@ -80,4 +97,4 @@ EOF
   fi
 fi
 
-exit 0
+pass_through

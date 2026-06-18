@@ -21,7 +21,6 @@ tools:
 skills:
   - feature-builder
   - feature-intake
-  - feature-pipeline
 memory: project
 ---
 

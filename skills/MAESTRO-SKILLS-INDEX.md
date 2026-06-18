@@ -18,7 +18,8 @@ Maestro is now a **domain layer on the superpowers engine**. The runbooks supply
 
 | Runbook phase | Composes (superpowers) |
 |---------------|------------------------|
-| `dev-pipeline` / `feature-builder` | research-before-implementing → brainstorming → writing-plans → test-driven-development + plan-adherence → verification-before-completion |
+| `dev-pipeline` | research-before-implementing → brainstorming → writing-plans → test-driven-development + plan-adherence → verification-before-completion |
+| `feature-builder` | research-before-implementing + subagent-driven-development + dispatching-parallel-agents + using-git-worktrees + plan-adherence + multi-model-validation |
 | `feature-research` | research-before-implementing + dispatching-parallel-agents |
 | `feature-approaches` | using-git-worktrees + dispatching-parallel-agents + plan-adherence |
 | `adr` | brainstorming → writing-plans |

@@ -2,8 +2,7 @@
 # =============================================================================
 # PreToolUse Security Blocker
 # =============================================================================
-# Blocks dangerous commands before they execute. Silent on success (no stdout),
-# stderr + exit 2 on block. This is the "silent success" pattern.
+# Blocks dangerous commands before they execute.
 #
 # Matcher: Bash
 # Event: PreToolUse
@@ -11,45 +10,55 @@
 
 TOOL_NAME="${CLAUDE_TOOL_NAME:-}"
 TOOL_INPUT="${CLAUDE_TOOL_INPUT:-}"
+HOOK_INPUT="$(cat)"
+
+pass_through() {
+  [ -n "$HOOK_INPUT" ] && printf '%s\n' "$HOOK_INPUT"
+  exit 0
+}
+
+block() {
+  [ -n "$HOOK_INPUT" ] && printf '%s\n' "$HOOK_INPUT"
+  echo "$1" >&2
+  exit 2
+}
+
+if [ -n "$HOOK_INPUT" ]; then
+  TOOL_NAME="$(printf '%s' "$HOOK_INPUT" | jq -r '.tool_name // ""' 2>/dev/null || printf '%s' "$TOOL_NAME")"
+  TOOL_INPUT="$(printf '%s' "$HOOK_INPUT" | jq -r '.tool_input.command // ""' 2>/dev/null || printf '%s' "$TOOL_INPUT")"
+fi
 
 # Only check Bash tool calls
-[[ "$TOOL_NAME" != "Bash" ]] && exit 0
+[[ "$TOOL_NAME" != "Bash" ]] && pass_through
 
 # --- Dangerous command patterns ---
 
 # Block rm -rf / or rm -rf ~
 if echo "$TOOL_INPUT" | grep -qE 'rm\s+-rf\s+(/|~|\$HOME)'; then
-  echo "BLOCKED: rm -rf on root/home directory" >&2
-  exit 2
+  block "BLOCKED: rm -rf on root/home directory"
 fi
 
 # Block force push to main/master
 if echo "$TOOL_INPUT" | grep -qE 'git\s+push\s+.*--force.*\s+(main|master)'; then
-  echo "BLOCKED: force push to main/master" >&2
-  exit 2
+  block "BLOCKED: force push to main/master"
 fi
 if echo "$TOOL_INPUT" | grep -qE 'git\s+push\s+-f\s+.*\s+(main|master)'; then
-  echo "BLOCKED: force push to main/master" >&2
-  exit 2
+  block "BLOCKED: force push to main/master"
 fi
 
 # Block npm publish (accidental package publishing)
 if echo "$TOOL_INPUT" | grep -qE 'npm\s+publish'; then
-  echo "BLOCKED: npm publish (use CI for publishing)" >&2
-  exit 2
+  block "BLOCKED: npm publish (use CI for publishing)"
 fi
 
 # Block git reset --hard on main/master
 if echo "$TOOL_INPUT" | grep -qE 'git\s+reset\s+--hard.*main|git\s+reset\s+--hard.*master'; then
-  echo "BLOCKED: git reset --hard on main/master" >&2
-  exit 2
+  block "BLOCKED: git reset --hard on main/master"
 fi
 
 # Block dropping databases
 if echo "$TOOL_INPUT" | grep -qiE 'DROP\s+(DATABASE|TABLE)\s'; then
-  echo "BLOCKED: DROP DATABASE/TABLE command" >&2
-  exit 2
+  block "BLOCKED: DROP DATABASE/TABLE command"
 fi
 
-# Silent success — no output
-exit 0
+pass_through

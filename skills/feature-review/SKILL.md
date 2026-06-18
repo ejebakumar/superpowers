@@ -20,7 +20,7 @@ This skill is the Degreed **rubric** (what to check). The review *discipline* co
 - **`superpowers:receiving-code-review`** — the systematic loop for running a review and acting on findings. This rubric feeds it.
 - **`superpowers:plan-adherence`** — the Phase 3.5 plan-vs-code gate. Any file/API/DTO change not in the plan is undocumented drift → BLOCKED. This is the adherence baseline below.
 - **`superpowers:multi-model-validation`** — **mandatory before any BLOCKED verdict.** Confirm the blocker with an independent model (or a runnable proof) so you never block on a single model's opinion.
-- **`a11y-review`** (domain) — the WCAG 2.2 AA patterns referenced in §6.
+- **`superpowers:a11y-review`** (domain) — the WCAG 2.2 AA patterns referenced in §6.
 
 ## Visual & A11y Review — Required for FE Changes
 
