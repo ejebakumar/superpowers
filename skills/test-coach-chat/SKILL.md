@@ -1,6 +1,6 @@
 ---
 name: test-coach-chat
-description: Test Maestro coach conversations as a learner — SSE chat, post-processing verification (summary, feedback, recommendations, inferences), follow-up context carry-over, and KB Q&A. Activates when the user asks to test a coach conversation, verify post-processing, check inferences, or test follow-up context.
+description: Use when testing Maestro coach text conversations live as a learner — SSE chat, post-processing inferences (summary, feedback, recommendations), follow-up context carry-over, and knowledge-base Q&A via the .NET API.
 ---
 
 # Coach Conversation Test Skill

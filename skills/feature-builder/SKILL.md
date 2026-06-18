@@ -1,6 +1,6 @@
 ---
 name: feature-builder
-description: "AI Native Feature Builder — orchestrates the full pipeline from Jira Epic to implementation PRs, Confluence documentation, and auto-generated test skills. Use when the user provides a Jira Epic ID and wants to build the feature end-to-end, or says 'build feature', 'implement epic', or 'work on this epic'."
+description: "Use when the user provides a Jira Epic ID and wants the feature built end-to-end, or says 'build feature', 'implement epic', or 'work on this epic'."
 ---
 
 # AI Native Feature Builder
@@ -28,6 +28,16 @@ The skill below contains the FULL phase instructions that agents reference. It i
 - User provides a Jira Epic ID (e.g., `PD-1234`) and wants the full pipeline
 - User says "build feature", "implement this epic", "work on this feature"
 - User wants to go from ticket to PRs + documentation automatically
+
+## Compose These Disciplines
+
+This runbook executes on the superpowers engine — invoke these skills, don't reimplement them:
+
+- `superpowers:research-before-implementing` — Phase 1, before any code: search-first, understand the existing system.
+- `superpowers:subagent-driven-development` — Phase 3, the per-task implementation loop each implementer runs.
+- `superpowers:dispatching-parallel-agents` + `superpowers:using-git-worktrees` — Phase 3, to run the multiple approaches concurrently in isolated worktrees.
+- `superpowers:plan-adherence` — every phase: implementers follow their plan; drift requires amending the plan first.
+- `superpowers:multi-model-validation` — at each phase gate / critic checkpoint, to validate before advancing.
 
 ## Prerequisites
 

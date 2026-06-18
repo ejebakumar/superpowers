@@ -1,11 +1,18 @@
 ---
 name: feature-approaches
-description: "Implement 3 distinct approaches for a feature, each with its own Git branch and PR. Creates sub-tasks in Jira linked to PRs. Use after the architecture decision phase defines the 3 approaches."
+description: "Use after the architecture decision phase has defined the 3 approaches for a feature and they are ready to be implemented."
 ---
 
 # Feature Approaches — Multi-Approach Implementation
 
 Implement 3 distinct approaches for a feature, each in its own branch with a PR, following the architecture decision from the ADR.
+
+## Compose These Disciplines
+
+This runbook executes on the superpowers engine — invoke these skills, don't reimplement them:
+
+- `superpowers:using-git-worktrees` + `superpowers:dispatching-parallel-agents` — one isolated worktree per approach, all three implemented concurrently; never fall back to a sequential single-branch run.
+- `superpowers:plan-adherence` — each implementer follows its approach's plan from the ADR; any drift requires amending the plan first, not improvising.
 
 ## Constants
 

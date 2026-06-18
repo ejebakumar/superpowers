@@ -1,11 +1,13 @@
 ---
 name: dev-pipeline
-description: "Standard 5-stage development workflow for any task (feature, bug, refactor). Start here for any implementation task. Covers: Understand, Plan, Implement, Validate, Document."
+description: Use when starting any implementation task in the Maestro/Degreed workspace — building a feature, fixing a bug, or refactoring across repos — and you need the right stack/feature skill, cross-repo conventions, and validation gates
 ---
 
 # Development Pipeline
 
 Standard workflow for implementing any task — feature, bug fix, or refactor — in the Maestro workspace. Follow this pipeline to ensure quality, consistency, and proper cross-repo coordination.
+
+This skill is the **domain orchestration layer**: it supplies the Degreed-specific stack/feature knowledge and wires each stage to the superpowers discipline that governs it. The disciplines do the heavy lifting; this skill tells you *which Degreed skill and which superpowers skill to invoke at each stage*.
 
 ## When to Use
 
@@ -13,6 +15,20 @@ Standard workflow for implementing any task — feature, bug fix, or refactor �
 - User asks to build a feature, fix a bug, or refactor code
 - Planning how to approach a multi-repo change
 - Unsure which repo, skill, or pattern to start with
+
+## Process Spine — Compose These Skills
+
+Each stage runs *on* a superpowers discipline. Invoke the governing skill, not just the domain notes below.
+
+| Stage | Governing discipline (invoke) | Domain skills (this repo) |
+|-------|-------------------------------|---------------------------|
+| 1. Understand | `superpowers:research-before-implementing` (search-first, extend-don't-duplicate) | `degreed-architecture`, the stack/feature skills, `get-api-docs`, `prompt-lookup` |
+| 2. Plan | `superpowers:brainstorming` → `superpowers:writing-plans` | `adr` |
+| 3. Implement | `superpowers:test-driven-development` + `superpowers:plan-adherence` (no drift without amending the plan) | the stack skills' conventions |
+| 4. Validate | `superpowers:verification-before-completion`; for high-stakes correctness/security calls `superpowers:multi-model-validation` | the test-harness `test-*` skills, `application-profiler` |
+| 5. Document | — | `feature-document`, `adr` |
+
+For the full multi-approach Epic→PR pipeline (parallel worktrees, critic, deploy), use `feature-builder` instead — it composes these same disciplines at larger scale.
 
 ---
 

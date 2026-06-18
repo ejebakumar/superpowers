@@ -1,6 +1,6 @@
 ---
 name: team-context-test
-description: Test the AIDATASCI-4785 team-context coach feature end-to-end against a deployed PR env. Activates when the user asks to test team context, verify team tools fire, check the 4-AND gate, or run a manager-coach scenario. Drives the team-context-chat CLI one command at a time and observes.
+description: Use when testing Maestro's team-context coach feature live as a manager — verifying the 4-AND gate, team-tool calls, Redis payload persistence, and ui.card SSE frames against a deployed PR env.
 ---
 
 # Team Context Test Skill

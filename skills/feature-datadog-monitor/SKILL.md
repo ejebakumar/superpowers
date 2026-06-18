@@ -1,6 +1,6 @@
 ---
 name: feature-datadog-monitor
-description: "Monitor Datadog logs, traces, and metrics for errors and performance issues during and after feature testing. Compares against Phase 1 baselines. Use during live testing or after deployment to verify system health."
+description: Use when system health needs to be verified in Datadog during or after live testing of a deployed feature — checking logs, traces, and metrics for errors, exceptions, or latency spikes against baselines.
 ---
 
 # Feature Datadog Monitor — Observability Check

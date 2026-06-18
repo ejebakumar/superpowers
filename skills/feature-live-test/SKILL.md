@@ -1,11 +1,16 @@
 ---
 name: feature-live-test
-description: "Run the generated test skill against a deployed PR environment. Executes integration tests, smoke tests, and LLM-as-a-Judge evaluations against a live URL. Collects evidence and posts results to Jira. Use after deployment to validate the feature works end-to-end."
+description: Use when a deployed PR environment needs to be validated end-to-end with integration tests, smoke tests, and LLM-as-a-Judge evaluations against the live URL.
 ---
 
 # Feature Live Test — Test Against Deployed Environment
 
 Run the test skill (generated in Phase 5) against the deployed PR environment (from Phase 6) to validate the feature works end-to-end.
+
+## Compose These Disciplines
+
+- `superpowers:verification-before-completion` — confirm the feature actually works against the live environment before declaring pass.
+- `superpowers:multi-model-validation` — confirm LLM-as-a-Judge verdicts independently before trusting them.
 
 ## Constants
 

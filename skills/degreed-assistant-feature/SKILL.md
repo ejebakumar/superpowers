@@ -1,6 +1,6 @@
 ---
 name: degreed-assistant-feature
-description: "Degreed Assistant (DGA) feature guide — 4 scoped quick-action capabilities. Use when working on DGA scopes, tools, pathway creation, content search, or skill updates."
+description: Use when working on the Degreed Assistant (DGA) learner feature — its four scoped quick-action capabilities (pathway curation, skill-content search, skill updates, manager content recommendation), tool-based reasoning, scopes, or multi-turn conversation memory.
 ---
 
 # Degreed Assistant Feature Guide

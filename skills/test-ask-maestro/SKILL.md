@@ -1,13 +1,6 @@
 ---
 name: test-ask-maestro
-description: |
-  E2E test the Ask Maestro multi-agent supervisor via the deployed .NET
-  /api/ask-maestro/* surface. Drives the LangGraph supervisor + 3 sub-agents
-  (find_content / curate_pathway / update_skill) through the same path the
-  Angular client uses: cookie+CSRF auth → connect (thread_id) → message →
-  GET SSE stream → optional HITL resume. Also covers file upload + RAG.
-  Activates when the user asks to "test ask maestro", run an ask maestro
-  scenario, verify SSE events, test HITL resume, or smoke-test a PR deploy.
+description: Use when testing Maestro's Ask Maestro multi-agent supervisor live — exercising the LangGraph supervisor and sub-agents, SSE events, HITL resume, file upload/RAG, and PR-deploy smoke tests via the .NET /api/ask-maestro/* surface.
 allowed-tools: [Bash, Read]
 ---
 

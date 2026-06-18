@@ -1,6 +1,6 @@
 ---
 name: test-quiz-attempt
-description: Take a Maestro quiz as a learner through the live API, answer questions (auto or Claude-guided), verify LLM processresults inferences. Use when asked to test a quiz, take a quiz, verify quiz inferences, or check quiz scoring.
+description: Use when testing a Maestro quiz attempt live as a learner — taking a quiz via the .NET API and verifying scoring, attempt lifecycle, and LLM processresults inferences.
 ---
 
 # Quiz Attempt Skill

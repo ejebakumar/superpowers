@@ -1,6 +1,6 @@
 ---
 name: dev-analytics-stack
-description: "Dev Analytics dashboard stack guide — FastAPI + asyncpg backend, Next.js 14 frontend, GitHub-API-fed Postgres warehouse, cron-triggered nightly collectors. Use when working in /Users/earnest/git/Dev_Analytics — adding new metrics, collectors, routers, or dashboard views."
+description: Use when working in the Dev Analytics dashboard repo (/Users/earnest/git/Dev_Analytics) — its FastAPI + asyncpg backend, Next.js 14 frontend, GitHub-API-fed Postgres warehouse, or cron-triggered nightly collectors, e.g. adding a metric, collector, router, or dashboard view.
 ---
 
 # Dev Analytics Stack Guide

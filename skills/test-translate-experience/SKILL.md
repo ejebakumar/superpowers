@@ -1,6 +1,6 @@
 ---
 name: test-translate-experience
-description: End-to-end test the Multilingual Maestro v1 translation flow. Fires a per-language translation job on a Coach / Quiz / Roleplay, polls the per-language TranslationStatus until terminal, then guides Datadog verification. Activates when the user asks to test the translation pipeline, verify translation status updates, smoke-test the new MaestroStudio Coach languages endpoint, or check that callbacks land in .NET.
+description: Use when testing Maestro's Multilingual v1 translation pipeline live — firing per-language translation jobs on a Coach, Quiz, or Roleplay and verifying TranslationStatus transitions, .NET callbacks, and Datadog traces.
 ---
 
 # Translation Service Engine Test Skill (multilingual-maestro-v1)

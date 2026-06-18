@@ -1,6 +1,6 @@
 ---
 name: degreed-experience-builder-feature
-description: "Degreed Experience Builder (Maestro Studio) feature guide — admin authoring, preview, validation, KB upload. Use when working on the Studio admin interface."
+description: Use when working on the Degreed Experience Builder (codename Maestro Studio) admin feature — authoring/configuring Coaches, Quizzes, and Roleplays, knowledge-base upload, guardrail setup, AI-assisted field generation, preview, or validation.
 ---
 
 # Degreed Experience Builder Feature Guide

@@ -1,6 +1,6 @@
 ---
 name: test-forms
-description: Test the Maestro Forms Agent by running a scenario through the live API. Activates when the user asks to test the forms agent, run a forms scenario, or verify forms behavior.
+description: Use when testing Maestro's Forms Agent live — running a forms scenario (including file upload and question generation) through the .NET API to verify forms behavior or a bug fix.
 ---
 
 # Forms Agent Test Skill

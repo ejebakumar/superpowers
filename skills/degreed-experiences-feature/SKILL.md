@@ -1,6 +1,6 @@
 ---
 name: degreed-experiences-feature
-description: "Degreed Experiences (Maestro) learner feature guide — Coach, Roleplay, Quiz, Forms E2E flows. Use when working on learner-facing experiences."
+description: Use when working on the learner-facing Degreed Experiences (codename Maestro) — the Coach, Roleplay, Quiz, and Forms experience types, their text (SSE) and voice (LiveKit) flows, prompt strategy engine, RAG knowledge bases, guardrails, or evaluation framework.
 ---
 
 # Degreed Experiences Feature Guide

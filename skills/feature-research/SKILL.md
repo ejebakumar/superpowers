@@ -1,11 +1,18 @@
 ---
 name: feature-research
-description: "Deep cross-repo research for a Jira ticket or feature — scans all 5 workspace repos for impact, maps dependencies, checks Datadog baselines, finds related tickets, and produces a research document. Use when investigating a feature, bug, or any ticket that needs thorough analysis before implementation."
+description: "Use when investigating a feature, bug, or any Jira ticket that needs thorough cross-repo analysis before implementation."
 ---
 
 # Feature Research — Deep Cross-Repo Analysis
 
 Perform comprehensive research across all workspace repositories to understand the full impact of a feature or bug fix.
+
+## Compose These Disciplines
+
+This runbook executes on the superpowers engine — invoke these skills, don't reimplement them:
+
+- `superpowers:research-before-implementing` — drives the search-first, extend-don't-duplicate posture: build the Existing Pattern Inventory before proposing anything new.
+- `superpowers:dispatching-parallel-agents` — fans out the per-repo / per-angle research agents concurrently rather than scanning sequentially.
 
 ## Mandatory Verification — Hallucination Prevention
 

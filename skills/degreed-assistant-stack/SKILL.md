@@ -1,6 +1,6 @@
 ---
 name: degreed-assistant-stack
-description: "degreed-assistant Python DGA service stack guide — LangChain tools, AgentUtils, scopes, Redis memory. Use when working in the DGA Python service."
+description: Use when working in the degreed-assistant Python/FastAPI service (DGA) — its LangChain tools, AgentUtils, scopes, Azure OpenAI calls, Redis conversation memory, or callbacks into the .NET API.
 ---
 
 # degreed-assistant Stack Guide

@@ -1,6 +1,6 @@
 ---
 name: doc:adr
-description: Génère un Architecture Decision Record (ADR) formaté et structuré
+description: Use when an architectural or technical decision needs to be recorded, or when the user asks for an ADR or to compare approaches before committing to one.
 model: sonnet
 allowed-tools: [TaskCreate, TaskUpdate, TaskList, Read, Write, Edit, Bash]
 argument-hint: [titre]
@@ -29,6 +29,13 @@ Lis le frontmatter de cette skill. Si un champ `output-style` est présent, exé
 
 ## Purpose
 Génère un Architecture Decision Record (ADR) complet et structuré pour documenter les décisions architecturales importantes du projet.
+
+## Compose These Disciplines
+
+Ce runbook s'exécute sur le moteur superpowers — invoque ces skills, ne les réimplémente pas :
+
+- `superpowers:brainstorming` — pour générer et comparer les approches candidates avant de retenir une décision.
+- `superpowers:writing-plans` — pour rédiger le Detailed Implementation Plan de l'approche retenue, que `superpowers:plan-adherence` fera ensuite respecter pendant l'implémentation.
 
 ## Variables
 - **DECISION_TITLE**: Le titre de la décision architecturale

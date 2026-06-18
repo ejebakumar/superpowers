@@ -1,11 +1,15 @@
 ---
 name: feature-document
-description: "Create a Solution Design Document (SDD) on Confluence following Degreed's official SDD template. Produces a complete, presentable architecture document with diagrams, not a status report. Use after the implementation phase to publish documentation."
+description: Use when a feature needs a published Solution Design Document (SDD) on Confluence after implementation, or when asked to produce a presentable architecture document for engineers and leadership.
 ---
 
 # Feature Documentation — Solution Design Document (SDD)
 
 Create a comprehensive Solution Design Document on Confluence following Degreed's official SDD format from the Architecture Guild. This is NOT a status report — it's a full architecture document with diagrams, data flows, security analysis, and performance considerations, presentable to other engineers and leadership.
+
+## Compose These Disciplines
+
+- `superpowers:verification-before-completion` — the SDD must be full content with no stubs; verify every section is complete and accurate before publishing to Confluence.
 
 ## Reference
 

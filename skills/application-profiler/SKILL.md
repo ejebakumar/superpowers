@@ -1,7 +1,6 @@
 ---
 name: profiling-application-performance
-description: |
-  This skill enables Claude to profile application performance, analyzing CPU usage, memory consumption, and execution time. It is triggered when the user requests performance analysis, bottleneck identification, or optimization recommendations. The skill uses the application-profiler plugin to identify performance bottlenecks and suggest code-level optimizations. Use it when asked to "profile application", "analyze performance", or "find bottlenecks". It is also helpful when the user mentions specific performance metrics like "CPU usage", "memory leaks", or "execution time".
+description: Use when the user asks to "profile application", "analyze performance", or "find bottlenecks", or mentions symptoms like high CPU usage, memory leaks, or slow execution time.
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 version: 1.0.0
 ---
@@ -23,6 +22,10 @@ This skill activates when you need to:
 - Analyze application performance for bottlenecks.
 - Identify CPU-intensive operations and memory leaks.
 - Optimize application execution time.
+
+## Compose These Disciplines
+
+- `superpowers:systematic-debugging` — form and test a hypothesis about the bottleneck before optimizing; don't change code on a hunch.
 
 ## Examples
 

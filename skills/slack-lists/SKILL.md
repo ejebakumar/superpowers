@@ -1,6 +1,6 @@
 ---
 name: slack-lists
-description: Create and populate Slack Lists (structured database-style lists, not Canvases) via the slackLists.* Web API. Activates when the user asks to create a Slack List, add rows to a List, or programmatically manage a Slack List.
+description: Use when the user asks to create a Slack List, add rows to one, or programmatically manage a structured Slack List (not a Canvas or bullet message), or shares a slack.com/lists/... URL.
 ---
 
 # Slack Lists Skill

@@ -1,11 +1,17 @@
 ---
 name: feature-intake
-description: "Analyze a Jira Epic — fetch ticket details, follow all links (Confluence, external), extract requirements, post a planning comment, and create pipeline sub-tasks. Use when starting the feature builder pipeline or when the user wants to understand an Epic before implementation."
+description: "Use when starting the feature builder pipeline, or when the user wants to analyze or understand a Jira Epic before implementation."
 ---
 
 # Feature Intake — Jira Epic Analysis
 
 Fetch a Jira Epic, follow all linked resources, extract requirements, and set up the pipeline sub-tasks.
+
+## Compose These Disciplines
+
+This runbook executes on the superpowers engine — invoke these skills, don't reimplement them:
+
+- `superpowers:brainstorming` — when the Epic is ambiguous or scope is unclear, resolve it with the user BEFORE extracting requirements or creating sub-tasks.
 
 ## Intake Mode Selection
 

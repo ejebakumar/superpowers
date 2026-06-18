@@ -1,6 +1,6 @@
 ---
 name: test-roleplay-e2e
-description: Drive a full end-to-end roleplay test as the orchestrator — Claude composes the roleplay (single persona, skills, Claude-authored feedback rubrics, duration), defines the simulated-learner persona, dispatches an OpenAI Realtime voice agent into the LiveKit room for a multi-minute session, records audio (and an MP4 if ffmpeg is available), then triggers post-processing and surfaces every inference as insights. Activates when the user says "test roleplay end to end", "run a 10 min roleplay", "create a roleplay and have a session", or similar.
+description: Use when testing a Maestro roleplay end-to-end over LiveKit voice — composing a single-persona roleplay, running a multi-minute spoken session with a simulated learner, and verifying post-processing inferences.
 ---
 
 # Roleplay E2E Test Skill — Claude-Orchestrated

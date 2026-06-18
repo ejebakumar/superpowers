@@ -1,6 +1,6 @@
 ---
 name: degreed-architecture
-description: "Complete platform architecture including request flows, cross-service communication, tech stack, and all 5 repositories. Use when you need the full architecture diagram or cross-service context."
+description: Use when you need cross-service or cross-repo context for the Degreed platform — how the .NET backend, Angular web, Flutter mobile, degreed-coach-builder (Maestro), and degreed-assistant repositories connect, where a request flows end to end, or which of the 5 repos owns a given feature.
 ---
 
 # Degreed Platform Architecture

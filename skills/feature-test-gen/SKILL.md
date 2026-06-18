@@ -1,11 +1,15 @@
 ---
 name: feature-test-gen
-description: "Generate a Claude-driven test harness for a feature: a Python CLI of atomic API verbs + a Playwright-MCP UI playbook. Claude drives every step one command at a time. Each run lives in its own session folder under tools/{feature}/sessions/{id}/ with api-log.jsonl, screenshots/, console/, network/, axe/. The harness is a TOOL, not a runner — it never auto-chains scenarios."
+description: Use when a feature needs a Claude-driven test harness generated — atomic API verbs plus a Playwright-MCP UI playbook — before live testing can begin.
 ---
 
 # Feature Test Generation — Claude-Driven Harness
 
 Generate a test harness that **Claude** drives. The Python file exposes **atomic verbs only** (one API action per command). Claude composes scenarios live, observing each response before issuing the next command. UI testing uses the **Playwright MCP** (`mcp__playwright__*`) — no headless test runner. Every run gets its own session folder where API logs, screenshots, console dumps, and axe results land together.
+
+## Compose These Disciplines
+
+- `superpowers:test-driven-development` — the failing-test-first philosophy the generated harness embodies; let expected behavior drive the verbs before implementation is trusted.
 
 ## Non-Negotiable Principles
 

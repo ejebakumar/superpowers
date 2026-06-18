@@ -1,10 +1,6 @@
 ---
 name: test-degreed-assistant
-description: |
-  E2E test the Degreed Assistant (DGA) quick-actions flow through the .NET
-  /api/assistant/* surface. Mirrors how the web/mobile client drives the four
-  DGA scopes (Curate pathway / Find skill-related content / Update your skills /
-  Recommend content to my team) by calling Flows → Connect → Chat (SSE).
+description: Use when testing Maestro's Degreed Assistant (DGA) quick-actions flow live — exercising the four DGA scopes (curate pathway, find content, update skills, recommend to team) and SSE chat via the .NET /api/assistant/* surface.
 allowed-tools: [Bash, Read]
 ---
 

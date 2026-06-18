@@ -1,6 +1,6 @@
 ---
 name: test-coach-create
-description: Test the Maestro Coach Builder by creating coaches through the live API — conversation with builder agent, auto-generation, KB upload, validation, save, and publish. Activates when the user asks to create a test coach, test the coach builder, or verify coach creation flow.
+description: Use when testing Maestro's Coach Builder live — creating and publishing coaches via the builder agent, including auto-generation, knowledge-base upload, validation, save, and publish through the .NET API.
 ---
 
 # Coach Builder Test Skill

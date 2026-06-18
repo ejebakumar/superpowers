@@ -1,6 +1,6 @@
 ---
 name: test-coach-voice
-description: Drive a full end-to-end coach voice test as the orchestrator — load an existing coach, dispatch an OpenAI Realtime voice agent into the LiveKit room as the simulated learner, run a multi-minute conversation, then trigger post-processing and surface all coach inferences (summary, feedback, recommendations, TaskItems, BehaviorPatterns, Agenda, UserLearningPreferences, KirkpatrickEvaluation, ConversationContext, Progress) as insights. Activates when the user says "test coach voice", "have a voice conversation with the coach", "run a coach voice session", or similar.
+description: Use when testing a Maestro coach over LiveKit voice end-to-end — running a multi-minute spoken session with a simulated learner and verifying voice transcripts plus post-processing coach inferences.
 ---
 
 # Coach Voice E2E Test Skill — Claude-Orchestrated

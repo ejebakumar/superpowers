@@ -1,6 +1,6 @@
 ---
 name: feature-review
-description: "Post-implementation review phase — verifies code quality, framework version compliance, coding standards, Apollo component availability, optimization, and cross-project dependency validation. Runs after implementation and before documentation."
+description: Use when implementation is complete and you're reviewing the code or PRs before documentation — checking cross-project dependency impact, per-repo standards, Apollo/i18n/a11y compliance, migration safety, and deployed visual fidelity
 ---
 
 # Feature Review — Post-Implementation Validation
@@ -12,6 +12,15 @@ Review all implementation code for quality, standards compliance, dependency saf
 - After Phase 3 (Implementation) completes, before Phase 4 (Documentation)
 - When the user asks to "review the implementation", "check the code quality", or "validate the PRs"
 - After any code change that touches existing modules across projects
+
+## Compose These Disciplines
+
+This skill is the Degreed **rubric** (what to check). The review *discipline* comes from superpowers — invoke these, don't reinvent them:
+
+- **`superpowers:receiving-code-review`** — the systematic loop for running a review and acting on findings. This rubric feeds it.
+- **`superpowers:plan-adherence`** — the Phase 3.5 plan-vs-code gate. Any file/API/DTO change not in the plan is undocumented drift → BLOCKED. This is the adherence baseline below.
+- **`superpowers:multi-model-validation`** — **mandatory before any BLOCKED verdict.** Confirm the blocker with an independent model (or a runnable proof) so you never block on a single model's opinion.
+- **`a11y-review`** (domain) — the WCAG 2.2 AA patterns referenced in §6.
 
 ## Visual & A11y Review — Required for FE Changes
 

@@ -1,6 +1,6 @@
 ---
 name: degreed-dotnet-stack
-description: "Degreed .NET backend stack guide — controllers, orchestrators, domain models, auth, SQL. Use when working in the .NET backend."
+description: Use when working in the Degreed ASP.NET Core / C# backend — its controllers, orchestrators, domain models, authentication/authorization, SQL Server persistence, or the proxy layer to the Python AI services.
 ---
 
 # Degreed .NET Backend Stack Guide

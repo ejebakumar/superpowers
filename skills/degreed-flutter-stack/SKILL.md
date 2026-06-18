@@ -1,6 +1,6 @@
 ---
 name: degreed-flutter-stack
-description: "Degreed Flutter mobile stack guide — DegreedCubit patterns, Dio, SSE, LiveKit, navigation. Use when working in the Flutter mobile app."
+description: Use when working in the Degreed Flutter/Dart mobile app (iOS + Android) — its BLoC/Cubit (DegreedCubit) state patterns, Dio HTTP, SSE streaming, LiveKit voice, or navigation for Coach, Assistant, Quiz, and Roleplay features.
 ---
 
 # Degreed Flutter Mobile Stack Guide

@@ -1,6 +1,6 @@
 ---
 name: degreed-design
-description: Use this skill to generate well-branded interfaces and assets for Degreed (the AI-powered Learning Experience Platform), either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping.
+description: Use when building or styling Degreed-branded interfaces or assets — production UI or throwaway prototypes/mocks — and you need the brand's design guidelines, colors, typography, fonts, assets, or UI kit components.
 user-invocable: true
 ---
 

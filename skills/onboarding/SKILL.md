@@ -1,6 +1,6 @@
 ---
 name: onboarding
-description: "Walk a new developer through first-time setup of the ai_native pipeline — prereq detection, sub-repo cloning, plugin install, secrets via $EDITOR, MCP auth, smoke verification, and a brief pipeline tour. Activates on /onboard, 'help me set up', 'first time setup', 'onboard me', 'I just cloned this — what now?', 'walk me through setup'."
+description: Use when a developer is setting up the ai_native pipeline for the first time, runs /onboard, or says things like "help me set up", "first time setup", "onboard me", "I just cloned this — what now?", or "walk me through setup".
 ---
 
 # Onboarding — Interactive First-Time Setup

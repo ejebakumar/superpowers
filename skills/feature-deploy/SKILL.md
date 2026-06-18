@@ -1,11 +1,15 @@
 ---
 name: feature-deploy
-description: "Deploy feature PRs to test environments via GitHub Actions /deploy comments. Handles .NET and frontend PR deployments, Python service URL from user, monitors deployment status, auto-retries failures. Use after implementation to get a live environment for testing."
+description: Use when a feature's PRs need to be deployed to a live test environment after implementation so the feature can be tested end-to-end.
 ---
 
 # Feature Deploy — PR Environment Deployment
 
 Deploy the selected approach's PRs to a test environment so the feature can be tested live.
+
+## Compose These Disciplines
+
+- `superpowers:verification-before-completion` — verify each layer (.NET, frontend, Python service) actually deployed and is healthy, not just returning a 200.
 
 ## Constants
 

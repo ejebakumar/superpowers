@@ -1,6 +1,6 @@
 ---
 name: test-multi-persona-voice
-description: "Test multi-persona roleplay voice — choose Mode A / B / C via multiPersonaMode, verify persona handoffs, voice switching, data-channel events, and transcript attribution."
+description: Use when testing Maestro's multi-persona roleplay over LiveKit voice — verifying Mode A/B/C topology, persona handoffs, voice switching, data-channel events, and transcript attribution.
 ---
 
 # Multi-Persona Voice Test Skill

@@ -1,17 +1,16 @@
 ---
 name: get-api-docs
-description: >
-  Use this skill when you need documentation for a third-party library, SDK, or API
-  before writing code that uses it — for example, "use the OpenAI API", "call the
-  Stripe API", "use the Anthropic SDK", "query Pinecone", or any time the user asks
-  you to write code against an external service and you need current API reference.
-  Fetch the docs with chub before answering, rather than relying on training knowledge.
+description: Use when you need current documentation for a third-party library, SDK, or API before writing code against it — for example "use the OpenAI API", "call the Stripe API", "use the Anthropic SDK", or "query Pinecone".
 ---
 
 # Get API Docs via chub
 
 When you need documentation for a library or API, fetch it with the `chub` CLI
 rather than guessing from training data. This gives you the current, correct API.
+
+## Compose These Disciplines
+
+- `superpowers:research-before-implementing` — ground the implementation in the current fetched docs, not training-data recollection, before writing any code.
 
 ## Step 1 — Find the right doc ID
 

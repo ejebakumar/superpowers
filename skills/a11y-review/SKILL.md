@@ -1,6 +1,6 @@
 ---
 name: a11y-review
-description: "Analyze a Jira ticket, feature description, or code changes for WCAG 2.2 AA accessibility pitfalls. Use during feature intake, implementation review, or when asked for an a11y gut check. Part of the AI Native Feature Builder pipeline."
+description: Use when a Jira ticket, feature description, design, or code change touches UI and needs a WCAG 2.2 AA accessibility check, or when the user asks for an "a11y review", "accessibility check", or "a11y gut check".
 ---
 
 # Accessibility Review — WCAG 2.2 AA

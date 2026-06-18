@@ -1,6 +1,6 @@
 ---
 name: degreed-coach-builder-stack
-description: "degreed-coach-builder Python Maestro AI service stack guide — LLM, prompts, RAG, voice, quiz, FastAPI. Use when working in the Python Maestro service."
+description: Use when working in the degreed-coach-builder Python/FastAPI service (Maestro) — its LLM/LangChain layer, prompt strategies, RAG, LiveKit voice worker, quiz generation, agents framework, or Redis state.
 ---
 
 # degreed-coach-builder (Maestro) Stack Guide
