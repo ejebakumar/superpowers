@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "application-profiler",
+  "owner": "jeremylongshore",
+  "repo": "claude-code-plugins-plus-skills",
+  "path": "backups/skill-structure-cleanup-20251108-073936/plugins/performance/application-profiler/skills/application-profiler",
+  "branch": "main",
+  "sha": "903b2083cbbfc68832d47a5ff8790ebe7790d5ed",
+  "source": "manual"
+}

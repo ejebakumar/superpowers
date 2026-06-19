@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Buttons — Variants</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px; background: #fff; font-family: var(--font-sans); }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 8px; font: 600 14px/1 var(--font-sans); border: 0; cursor: pointer; }
+  .secondary { background: #fff; color: #0062E3; border: 1px solid #C9D3D8; }
+  .ghost { background: transparent; color: #0062E3; }
+  .ghost-hover { background: #F4F6F7; color: #0062E3; }
+  .danger { background: #DE0546; color: #fff; }
+  .icon { background: #fff; border: 1px solid #E2E8EB; width: 40px; padding: 0; justify-content: center; color: #44515A; }
+  .lbl { font-size: 11px; color: var(--fg-muted); font-family: var(--font-mono); width: 90px; }
+  img { width: 16px; height: 16px; }
+</style></head><body>
+<div class="row"><span class="lbl">secondary</span>
+  <button class="btn secondary">Cancel</button>
+  <button class="btn secondary"><img src="../assets/icons/plus.svg">Add skill</button>
+</div>
+<div class="row"><span class="lbl">ghost</span>
+  <button class="btn ghost">Skip for now</button>
+  <button class="btn ghost-hover">Hover</button>
+</div>
+<div class="row"><span class="lbl">danger / icon</span>
+  <button class="btn danger">Delete</button>
+  <button class="btn icon"><img src="../assets/icons/dots.svg"></button>
+  <button class="btn icon"><img src="../assets/icons/bookmark.svg"></button>
+</div>
+</body></html>

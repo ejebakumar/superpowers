@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Buttons — Primary</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px; background: #fff; font-family: var(--font-sans); }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 8px; font: 600 14px/1 var(--font-sans); border: 0; cursor: pointer; }
+  .btn-sm { height: 32px; padding: 0 12px; font-size: 13px; }
+  .btn-lg { height: 48px; padding: 0 20px; font-size: 15px; }
+  .pri { background: #0062E3; color: #fff; }
+  .pri-hover { background: #0854C5; color: #fff; }
+  .pri-disabled { background: #C9D3D8; color: #fff; cursor: not-allowed; }
+  .lbl { font-size: 11px; color: var(--fg-muted); font-family: var(--font-mono); width: 60px; }
+</style></head><body>
+<div class="row"><span class="lbl">size</span>
+  <button class="btn pri btn-sm">Add to plan</button>
+  <button class="btn pri">Add to plan</button>
+  <button class="btn pri btn-lg">Add to plan</button>
+</div>
+<div class="row"><span class="lbl">state</span>
+  <button class="btn pri">Default</button>
+  <button class="btn pri-hover">Hover</button>
+  <button class="btn pri-disabled">Disabled</button>
+</div>
+</body></html>

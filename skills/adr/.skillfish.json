@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "adr",
+  "owner": "atournayre",
+  "repo": "claude-marketplace",
+  "path": "doc/skills/adr",
+  "branch": "main",
+  "sha": "f75e5e02e47a3dfc612bf3bd988614b1514f0fd8",
+  "source": "manual"
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Status colors</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px; font-family: var(--font-sans); background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card { border-radius: 8px; border: 1px solid; padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .name { font-weight: 600; font-size: 13px; }
+  .body { font-size: 12px; }
+  .hex { font-family: var(--font-mono); font-size: 10px; opacity: .7; }
+</style></head><body>
+<div class="grid">
+  <div class="card" style="background:#F0FDF4;border-color:#BDF5D3;color:#1A8244">
+    <div class="name">Success</div>
+    <div class="body">Skill verified · Goal complete</div>
+    <div class="hex">bg-success-100 · fg-success-800</div>
+  </div>
+  <div class="card" style="background:#FFFDE7;border-color:#FFF286;color:#A66202">
+    <div class="name">Warning</div>
+    <div class="body">Due in 2 days · Streak ending</div>
+    <div class="hex">bg-warning-100 · fg-warning-800</div>
+  </div>
+  <div class="card" style="background:#FFF0F2;border-color:#FFC9D3;color:#DE0546">
+    <div class="name">Danger</div>
+    <div class="body">Couldn't load content · Try again</div>
+    <div class="hex">bg-danger-100 · fg-danger-800</div>
+  </div>
+</div>
+</body></html>

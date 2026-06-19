@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Apollo components — Degreed</title>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;590;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #FBFBFB; font-family: 'Inter', sans-serif; color: #0F1F2C; }
+    .page { max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; }
+    .panel { background: #fff; border: 1px solid #E2E8EB; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+    .label { font: 800 11px/1 Inter; text-transform: uppercase; letter-spacing: .04em; color: #5B737F; margin-bottom: 4px; }
+    .src { font: 400 11px/1.4 'JetBrains Mono', ui-monospace, monospace; color: #8A9AA1; margin-bottom: 16px; }
+    .stack { display: flex; flex-direction: column; gap: 12px; }
+    .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    h1 { font: 800 36px/40px Inter; margin: 0 0 8px; letter-spacing: -0.01em; }
+    h2.section {
+      font: 800 12px/1 Inter; text-transform: uppercase; letter-spacing: .08em;
+      color: #0F1F2C; margin: 36px 0 12px; padding-bottom: 8px;
+      border-bottom: 2px solid #0F1F2C; display: inline-block;
+    }
+    .lead { font: 400 16px/24px Inter; color: #44515A; margin: 0 0 32px; max-width: 720px; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="Primitives.jsx"></script>
+  <script type="text/babel" src="Apollo.jsx"></script>
+  <script type="text/babel" src="Apollo2.jsx"></script>
+
+  <script type="text/babel">
+    const Section = ({ title, children }) => (
+      <>
+        <h2 className="section">{title}</h2>
+        {children}
+      </>
+    );
+    const Block = ({ name, source, children }) => (
+      <div className="panel">
+        <div className="label">{name}</div>
+        {source && <div className="src">{source}</div>}
+        {children}
+      </div>
+    );
+
+    const App = () => {
+      const [tab, setTab] = React.useState('overview');
+      const [search, setSearch] = React.useState('');
+      const [email, setEmail] = React.useState('jordan@example.com');
+      const [page, setPage] = React.useState(3);
+      const [check1, setCheck1] = React.useState(true);
+      const [check2, setCheck2] = React.useState(false);
+      const [radio, setRadio] = React.useState('weekly');
+      const [liked, setLiked] = React.useState(false);
+      const [disliked, setDisliked] = React.useState(false);
+      const [followed, setFollowed] = React.useState(false);
+      const [busy, setBusy] = React.useState(false);
+      const [modalOpen, setModalOpen] = React.useState(false);
+
+      return (
+        <div data-screen-label="Apollo components" className="page">
+          <h1>Apollo + Fresco components</h1>
+          <p className="lead">
+            Recreations from <code>fe-workspace/libs/shared/apollo</code>, <code>fresco</code>, and <code>lxp/ui</code>.
+            Each block mirrors a production component with its real styles, sizes, and states.
+          </p>
+
+          {/* ─────────────── BUTTONS ─────────────── */}
+          <Section title="Buttons">
+            <Block name="Apollo button — variants" source="apollo/tailwind/src/components/buttons.ts">
+              <div className="row">
+                <ApolloButton variant="primary">Primary</ApolloButton>
+                <ApolloButton variant="destructive">Destructive</ApolloButton>
+                <ApolloButton variant="secondary-outline">Secondary outline</ApolloButton>
+                <ApolloButton variant="secondary-filled">Secondary filled</ApolloButton>
+                <ApolloButton variant="tertiary">Tertiary</ApolloButton>
+                <ApolloButton variant="tertiary-neutral">Tertiary neutral</ApolloButton>
+                <ApolloButton variant="tertiary-destructive">Tertiary destructive</ApolloButton>
+                <ApolloButton disabled>Disabled</ApolloButton>
+              </div>
+              <div className="row" style={{ marginTop: 12 }}>
+                <ApolloButton variant="ghost-purple">Ghost purple</ApolloButton>
+                <ApolloButton variant="ghost-neutral">Ghost neutral</ApolloButton>
+                <ApolloButton variant="ghost-green">Ghost green</ApolloButton>
+                <ApolloButton variant="ghost-yellow">Ghost yellow</ApolloButton>
+                <ApolloButton variant="ghost-red">Ghost red</ApolloButton>
+              </div>
+              <div className="row" style={{ marginTop: 12 }}>
+                <ApolloButton size="small">Small (24)</ApolloButton>
+                <ApolloButton size="medium">Medium (32)</ApolloButton>
+                <ApolloButton size="large">Large (40)</ApolloButton>
+              </div>
+            </Block>
+
+            <Block name="df-button (Fresco)" source="fresco/forms/buttons/components/button-basic">
+              <div className="row">
+                <DfButton variant="primary">Primary</DfButton>
+                <DfButton variant="secondary">Secondary</DfButton>
+                <DfButton variant="tag">Tag</DfButton>
+                <DfButton variant="danger">Danger</DfButton>
+                <DfButton variant="destructive">Destructive</DfButton>
+                <DfButton variant="passive">Passive</DfButton>
+                <DfButton variant="ghost">Ghost</DfButton>
+                <DfButton variant="clear">Clear</DfButton>
+                <DfButton disabled>Disabled</DfButton>
+              </div>
+              <div className="row" style={{ marginTop: 12 }}>
+                <DfButton size="default">Default 48</DfButton>
+                <DfButton size="small">Small 40</DfButton>
+                <DfButton size="extra-small">Extra-small 32</DfButton>
+              </div>
+            </Block>
+
+            <Block name="df-button-action / dgx-action-button" source="fresco/forms/buttons/button-action · lxp/ui/components/action-button">
+              <div className="row">
+                <DfButtonAction icon="plus" active={followed} onClick={() => setFollowed(!followed)}>
+                  {followed ? 'Following' : 'Follow'}
+                </DfButtonAction>
+                <DfButtonAction icon="bookmark">Save</DfButtonAction>
+                <DfButtonAction icon="share">Share</DfButtonAction>
+                <ActionButton icon="bell">Notify me</ActionButton>
+                <ActionButton icon="filter" secondary>Filter</ActionButton>
+                <ActionButton design="square" icon="grid">Grid</ActionButton>
+              </div>
+            </Block>
+
+            <Block name="SpinnerButton — busy state" source="fresco/placeholders/spinner-button">
+              <div className="row">
+                <SpinnerButton isBusy={busy} onClick={() => { setBusy(true); setTimeout(() => setBusy(false), 1500); }}>
+                  Save changes
+                </SpinnerButton>
+                <DfSpinner context="container" />
+              </div>
+            </Block>
+          </Section>
+
+          {/* ─────────────── FORMS ─────────────── */}
+          <Section title="Forms & inputs">
+            <Block name="da-search-field & da-text-input" source="apollo/angular/components/search-field · text-input">
+              <div className="grid2">
+                <SearchField label="Search content" value={search} onChange={setSearch} onClear={() => setSearch('')} />
+                <TextInput label="Email" value={email} onChange={setEmail} required />
+                <TextInput label="Display name" value="" onChange={() => {}} helper="Shown on your profile and to managers." />
+                <TextInput label="Manager email" value="not-an-email" onChange={() => {}} error="Enter a valid email address." />
+              </div>
+            </Block>
+
+            <Block name="df-input-decorator" source="fresco/forms/inputs/components/input-decorator">
+              <div className="grid2">
+                <FormField label="Website" optional>
+                  <InputDecorator prepend="https://" placeholder="degreed.com" />
+                </FormField>
+                <FormField label="Hours per week" helper="Whole numbers only">
+                  <InputDecorator append="hrs" prependType="well" placeholder="40" />
+                </FormField>
+              </div>
+            </Block>
+
+            <Block name="Apollo checkbox & radio" source="apollo/tailwind/src/components/checkbox.ts · radios.ts">
+              <div className="grid2">
+                <div className="stack">
+                  <ApolloCheckbox checked={check1} onChange={setCheck1}>Email me weekly digest</ApolloCheckbox>
+                  <ApolloCheckbox checked={check2} onChange={setCheck2}>Notify me about new groups</ApolloCheckbox>
+                  <ApolloCheckbox disabled>Disabled state</ApolloCheckbox>
+                </div>
+                <div className="stack">
+                  <ApolloRadio name="freq" value="daily" checked={radio === 'daily'} onChange={setRadio}>Daily</ApolloRadio>
+                  <ApolloRadio name="freq" value="weekly" checked={radio === 'weekly'} onChange={setRadio}>Weekly</ApolloRadio>
+                  <ApolloRadio name="freq" value="monthly" checked={radio === 'monthly'} onChange={setRadio}>Monthly</ApolloRadio>
+                  <ApolloRadio name="freq" value="never" disabled>Never</ApolloRadio>
+                </div>
+              </div>
+            </Block>
+
+            <Block name="FileUploader — full & compact" source="lxp/ui/components/file-uploader">
+              <div className="grid2">
+                <FileUploader template="full" label="Drag and drop or browse files" helper="PDF, DOCX, PPTX up to 50 MB" />
+                <FileUploader template="compact" label="Add attachment" />
+              </div>
+            </Block>
+          </Section>
+
+          {/* ─────────────── FEEDBACK ─────────────── */}
+          <Section title="Feedback & status">
+            <Block name="da-alert" source="apollo/angular/components/alert">
+              <div className="stack">
+                <Alert theme="info" title="Maestro is updating recommendations based on your most recent skill review." />
+                <Alert theme="success" title="Pathway saved" subtitle="You can find it under Plans → Saved." />
+                <Alert theme="warning" title="Your skill review is due in 3 days." />
+                <Alert theme="error"
+                  title="We couldn't load this pathway"
+                  subtitle="The pathway may have been moved or removed."
+                  buttons={[{ id: 'retry', text: 'Try again' }, { id: 'home', text: 'Back to home' }]}
+                />
+                <Alert theme="highlight"
+                  title="New: Group Skill Reviews"
+                  subtitle="Run a calibrated review across your team."
+                  items={[
+                    { text: 'Pre-fill ratings from peer signals' },
+                    { text: 'Side-by-side comparison view' },
+                  ]}
+                />
+              </div>
+            </Block>
+
+            <Block name="df-local-notification" source="fresco/local-notification">
+              <div className="stack">
+                <LocalNotification type="info">Heads up — your manager added a new skill to your plan.</LocalNotification>
+                <LocalNotification type="success">Your changes were saved.</LocalNotification>
+                <LocalNotification type="warning">This pathway hasn't been updated in 6+ months.</LocalNotification>
+                <LocalNotification type="error">We couldn't load skill recommendations. Try again.</LocalNotification>
+                <LocalNotification type="info" size="small">Compact size for inline use.</LocalNotification>
+              </div>
+            </Block>
+
+            <Block name="da-toast" source="apollo/angular/components/toast">
+              <div className="stack" style={{ alignItems: 'flex-start' }}>
+                <Toast type="success" title="Pathway saved" message="It's now in your Plans." actionLabel="View plan" onAction={() => {}} onClose={() => {}} />
+                <Toast type="info" message="Maestro is rebuilding your recommendations." onClose={() => {}} />
+                <Toast type="warning" title="Skill review due" message="Complete your review before Friday to keep your dashboard up to date." onClose={() => {}} />
+                <Toast type="error" title="Couldn't sync" message="Some of your latest activity didn't make it. We'll retry shortly." actionLabel="Retry now" onAction={() => {}} onClose={() => {}} />
+              </div>
+            </Block>
+
+            <Block name="da-empty-state — modes" source="apollo/angular/components/empty-state">
+              <div className="grid3">
+                <div style={{ background: '#FBFBFB', borderRadius: 8 }}>
+                  <EmptyState mode="default" title="Start your first plan"
+                    subtitle="Add 3 to 5 items you want to learn this quarter."
+                    actions={[{ label: 'Create plan', icon: 'plus', variant: 'primary', action: () => {} }]}
+                  />
+                </div>
+                <div style={{ background: '#FBFBFB', borderRadius: 8 }}>
+                  <EmptyState mode="info" title="No results"
+                    subtitle="Try adjusting your filters or search terms."
+                    actions={[{ label: 'Clear filters', variant: 'secondary', action: () => {} }]}
+                  />
+                </div>
+                <div style={{ background: '#FBFBFB', borderRadius: 8 }}>
+                  <EmptyState mode="error" title="Something went wrong"
+                    subtitle="We couldn't load your skills. Please try again."
+                    actions={[
+                      { label: 'Try again', variant: 'primary', action: () => {} },
+                      { label: 'Contact support', variant: 'secondary', action: () => {} },
+                    ]}
+                  />
+                </div>
+              </div>
+            </Block>
+          </Section>
+
+          {/* ─────────────── DATA DISPLAY ─────────────── */}
+          <Section title="Data display">
+            <Block name="da-avatar — sizes & badges" source="apollo/angular/components/avatar">
+              <div className="row">
+                <ApolloAvatar size="xs" name="JD" />
+                <ApolloAvatar size="sm" name="JD" />
+                <ApolloAvatar size="md" name="JD" />
+                <ApolloAvatar size="lg" name="JD" />
+                <ApolloAvatar size="xl" name="JD" />
+                <ApolloAvatar size="md" name="JD" badgeIcon="checkmark" />
+                <ApolloAvatar size="lg" name="JD" badgeIcon="bell" />
+                <ApolloAvatar size="xl" name="JD" badgeIcon="award" />
+              </div>
+            </Block>
+
+            <Block name="Apollo badges" source="apollo/tailwind/src/components/badges.ts">
+              <div className="row">
+                <ApolloBadge variant="accent">New</ApolloBadge>
+                <ApolloBadge variant="success">Complete</ApolloBadge>
+                <ApolloBadge variant="warning">Due soon</ApolloBadge>
+                <ApolloBadge variant="danger">Overdue</ApolloBadge>
+              </div>
+            </Block>
+
+            <Block name="dgx-thumbs" source="lxp/ui/components/thumbs">
+              <div className="row">
+                <Thumbs liked={liked} disliked={disliked}
+                  onLike={() => { setLiked(!liked); setDisliked(false); }}
+                  onDislike={() => { setDisliked(!disliked); setLiked(false); }} />
+                <span style={{ font: '500 14px Inter', color: '#5B737F' }}>Was this recommendation helpful?</span>
+              </div>
+            </Block>
+
+            <Block name="InsightsCard" source="lxp/ui/components/insights-card">
+              <div className="grid2">
+                <InsightsCard
+                  title="Skill confidence"
+                  description="You've rated 12 skills since last quarter."
+                  metricCount={12}
+                  metricLabel="skills"
+                />
+                <InsightsCard
+                  title="Time invested"
+                  description="Across pathways, courses, and articles."
+                  metricCount="4.2h"
+                  metricLabel="this week"
+                />
+              </div>
+            </Block>
+          </Section>
+
+          {/* ─────────────── NAVIGATION ─────────────── */}
+          <Section title="Navigation">
+            <Block name="da-breadcrumb" source="apollo/angular/components/breadcrumb">
+              <Breadcrumb items={[
+                { label: 'Home', link: '/' },
+                { label: 'Pathways', link: '/pathways' },
+                { label: 'Modern Data Analytics' },
+              ]} />
+            </Block>
+
+            <Block name="da-tabs (button mode)" source="apollo/angular/components/tabs">
+              <Tabs
+                tabs={[
+                  { id: 'overview', label: 'Overview' },
+                  { id: 'content',  label: 'Content' },
+                  { id: 'people',   label: 'People' },
+                  { id: 'activity', label: 'Activity' },
+                ]}
+                active={tab} onChange={setTab}
+              />
+            </Block>
+
+            <Block name="da-pagination" source="apollo/angular/components/pagination">
+              <Pagination page={page} total={12} onChange={setPage} />
+            </Block>
+          </Section>
+
+          {/* ─────────────── CONTAINERS ─────────────── */}
+          <Section title="Containers & overlays">
+            <Block name="Modal" source="standardized from fresco modal patterns">
+              <div className="row">
+                <ApolloButton variant="primary" onClick={() => setModalOpen(true)}>Open modal</ApolloButton>
+              </div>
+              <Modal open={modalOpen} onClose={() => setModalOpen(false)}
+                title="Add to a plan"
+                subtitle="Choose where this pathway should live."
+                footer={
+                  <>
+                    <ApolloButton variant="secondary-outline" onClick={() => setModalOpen(false)}>Cancel</ApolloButton>
+                    <ApolloButton variant="primary" onClick={() => setModalOpen(false)}>Add to plan</ApolloButton>
+                  </>
+                }>
+                <div className="stack">
+                  <ApolloRadio name="plan" value="q1" checked={radio === 'q1'} onChange={setRadio}>Q1 learning plan</ApolloRadio>
+                  <ApolloRadio name="plan" value="leadership" checked={radio === 'leadership'} onChange={setRadio}>Leadership 2026</ApolloRadio>
+                  <ApolloRadio name="plan" value="onboarding" checked={radio === 'onboarding'} onChange={setRadio}>Engineering onboarding</ApolloRadio>
+                </div>
+              </Modal>
+            </Block>
+
+            <Block name="Popover" source="fresco/popover">
+              <Popover>
+                <div style={{ font: '600 13px/18px Inter' }}>Mark as complete?</div>
+                <div style={{ font: '400 13px/18px Inter', color: '#44515A', marginTop: 4 }}>This adds 1 hour to your skill log.</div>
+                <div className="row" style={{ marginTop: 12 }}>
+                  <ApolloButton variant="primary" size="small">Confirm</ApolloButton>
+                  <ApolloButton variant="tertiary-neutral" size="small">Cancel</ApolloButton>
+                </div>
+              </Popover>
+            </Block>
+
+            <Block name="Accordion" source="fresco/styles/components/_accordion.scss">
+              <Accordion items={[
+                { title: 'What counts as a learning activity?', body: 'Anything from courses to articles, podcasts, mentorship, on-the-job projects, and conferences. Maestro picks up most of these automatically.' },
+                { title: 'How are skill ratings calculated?', body: 'Ratings combine self-assessment, manager input, peer reviews, and signals from completed work. You can review the math on your skill detail page.' },
+                { title: 'Can my manager see my plan?', body: 'Plans are private by default. You can share specific plans with your manager from the plan settings.' },
+              ]} />
+            </Block>
+          </Section>
+
+          {/* ─────────────── LOADING ─────────────── */}
+          <Section title="Loading & async">
+            <Block name="df-spinner — contexts" source="fresco/placeholders/spinner">
+              <div className="row" style={{ alignItems: 'center', gap: 32 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <DfSpinner context="default" />
+                  <span style={{ font: '400 11px Inter', color: '#5B737F' }}>default</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <DfSpinner context="container" />
+                  <span style={{ font: '400 11px Inter', color: '#5B737F' }}>container</span>
+                </div>
+                <div style={{ background: '#0F1F2C', padding: 12, borderRadius: 8, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <DfSpinner context="video" />
+                  <span style={{ font: '400 11px Inter', color: '#fff' }}>video</span>
+                </div>
+              </div>
+            </Block>
+
+            <Block name="Skeleton — variants" source="lxp/ui/components/skeleton">
+              <div className="grid3">
+                <Skeleton type="card" />
+                <Skeleton type="card" layout="image" />
+                <Skeleton type="user" />
+                <Skeleton type="group" />
+                <Skeleton type="kpi" />
+                <Skeleton type="tag" />
+              </div>
+              <div style={{ marginTop: 16 }}>
+                <Skeleton type="search-result-card" />
+                <Skeleton type="search-result-card" />
+                <Skeleton type="search-result-card" />
+              </div>
+            </Block>
+          </Section>
+
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+  </script>
+</body>
+</html>

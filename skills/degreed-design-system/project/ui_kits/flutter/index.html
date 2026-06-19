@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Degreed Mobile — UI Kit</title>
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;590;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #F3F4F4; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; gap: 32px; }
+    .stage { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; justify-content: center; }
+    .frame-label { text-align: center; font: 700 13px/1 Inter; color: #44515A; margin-top: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .group { display: flex; flex-direction: column; align-items: center; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel" src="MobilePrimitives.jsx"></script>
+  <script type="text/babel" src="Screens.jsx"></script>
+
+  <script type="text/babel">
+    const user = { name: 'Jordan Diaz' };
+
+    const Phone = ({ children, label }) => (
+      <div className="group">
+        <div style={{ transform: 'scale(0.78)', transformOrigin: 'top center' }}>
+          <IOSDevice width={402} height={874} dark={false}>
+            <div style={{ height: '100%', display: 'flex', flexDirection: 'column', background: '#FBFBFB' }}>
+              {children}
+            </div>
+          </IOSDevice>
+        </div>
+        <div className="frame-label" style={{ marginTop: -180 }}>{label}</div>
+      </div>
+    );
+
+    const InteractivePhone = () => {
+      const [tab, setTab] = React.useState('home');
+      const [maestroOpen, setMaestro] = React.useState(false);
+
+      let content;
+      if (tab === 'maestro' || maestroOpen) {
+        content = <MMaestroScreen />;
+      } else if (tab === 'profile') {
+        content = <MProfileScreen user={user} />;
+      } else {
+        content = <MHomeScreen user={user} openMaestro={() => { setMaestro(true); setTab('maestro'); }} />;
+      }
+
+      const titles = { home: 'Home', plan: 'My Plan', maestro: 'Maestro', skills: 'Skills', profile: 'Profile' };
+
+      return (
+        <Phone label="Interactive">
+          <MAppBar title={titles[tab]} />
+          <div data-screen-label={`0${['home','plan','maestro','skills','profile'].indexOf(tab)+1} ${titles[tab]}`} style={{ flex: 1, overflowY: 'auto', minHeight: 0 }}>
+            {content}
+          </div>
+          <MBottomNav active={tab} setActive={(t) => { setTab(t); setMaestro(t === 'maestro'); }} />
+        </Phone>
+      );
+    };
+
+    const App = () => (
+      <div className="stage">
+        <InteractivePhone />
+        <Phone label="Profile">
+          <MAppBar title="Profile" />
+          <div style={{ flex: 1, overflowY: 'auto', minHeight: 0 }}><MProfileScreen user={user} /></div>
+          <MBottomNav active="profile" setActive={() => {}} />
+        </Phone>
+      </div>
+    );
+
+    ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Brand — Logos</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 18px; background: #fff; font-family: var(--font-sans); display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { border: 1px solid #E2E8EB; border-radius: 8px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .card.dark { background: #0F1F2C; border-color: transparent; }
+  .card.blue { background: #0062E3; border-color: transparent; }
+  .label { font-size: 11px; color: var(--fg-muted); font-family: var(--font-mono); }
+  .label.on-dark { color: #C9D3D8; }
+  img.wordmark { height: 32px; width: auto; }
+  img.icon { height: 56px; width: auto; }
+</style></head><body>
+<div class="card"><img class="wordmark" src="../assets/logos/degreed-logo.png"><div class="label">Wordmark · primary</div></div>
+<div class="card dark"><img class="wordmark" src="../assets/logos/degreed-logo.png" style="filter:brightness(0) invert(1)"><div class="label on-dark">Wordmark · reversed</div></div>
+<div class="card"><img class="icon" src="../assets/logos/maestro-logo.png"><div class="label">Maestro · AI assistant</div></div>
+<div class="card blue"><img class="icon" src="../assets/logos/degreed-icon.svg" style="filter:brightness(0) invert(1)"><div class="label on-dark">Icon mark on True Blue</div></div>
+</body></html>

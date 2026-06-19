@@ -1,0 +1,235 @@
+/* =====================================================================
+ * Degreed — Apollo / Fresco design tokens (web)
+ *   Source of truth:
+ *     fe-workspace/libs/shared/apollo/tailwind/src/lib/colors.ts
+ *     fe-workspace/libs/shared/fresco/styles/variables.css
+ *     fe-workspace/libs/shared/apollo/tailwind/src/components/buttons.ts
+ *
+ * Naming convention:
+ *   --color-{role}-{shade}   raw palette (50…950)
+ *   --fg / --bg / --border   semantic
+ *   --text-h1 / --text-body  typography
+ *
+ * Always prefer semantic tokens; reach for raw shades only when nothing
+ * semantic fits.
+ * ===================================================================== */
+
+@font-face {
+  font-family: 'Antonia';
+  src: url('fonts/AntoniaH1-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ── Brand ─────────────────────────────────────────────────────────── */
+  --brand-true-blue:        #0062E3;  /* Degreed primary */
+  --brand-skys-the-limit:   #E9F7FE;
+  --brand-fry-sauce:        #FF7F64;
+  --brand-think-pink:       #FFECE8;
+  --brand-gold-metal:       #FED141;
+  --brand-champagne:        #FFFAEC;
+  --brand-moon-shot:        #0F1F2C;  /* Ebony, headline ink */
+  --brand-karl-the-fog:     #F3F4F4;
+
+  /* ── Neutrals ──────────────────────────────────────────────────────── */
+  --color-neutral-white: #FFFFFF;
+  --color-neutral-50:  #FBFBFB;
+  --color-neutral-100: #F4F6F7;
+  --color-neutral-200: #E2E8EB;
+  --color-neutral-300: #C9D3D8;
+  --color-neutral-400: #A3B5BD;
+  --color-neutral-500: #768E9A;
+  --color-neutral-600: #5B737F;
+  --color-neutral-700: #4E606C;
+  --color-neutral-800: #44515A;
+  --color-neutral-900: #3D464D;
+  --color-neutral-950: #353C42;
+
+  /* ── Primary (Apollo "primary" = blue) ─────────────────────────────── */
+  --color-primary-50:  #F3FBFF;
+  --color-primary-100: #EDF9FF;
+  --color-primary-200: #D6F0FF;
+  --color-primary-300: #B5E7FF;
+  --color-primary-400: #83D9FF;
+  --color-primary-500: #48C2FF;
+  --color-primary-600: #1EA1FF;
+  --color-primary-700: #0682FF;
+  --color-primary-800: #0062E3;  /* the brand True Blue lives here */
+  --color-primary-900: #0854C5;
+  --color-primary-950: #0D4A9B;
+
+  /* ── Accent (Apollo "accent" = purple) ─────────────────────────────── */
+  --color-accent-50:  #F9F5FF;
+  --color-accent-100: #F1E6FF;
+  --color-accent-200: #E7D4FF;
+  --color-accent-300: #D3B1FF;
+  --color-accent-400: #BF8DFF;
+  --color-accent-500: #AB69FF;
+  --color-accent-600: #9746FF;
+  --color-accent-700: #8322FF;
+  --color-accent-800: #6800EE;
+  --color-accent-900: #5200BB;
+  --color-accent-950: #3C0088;
+
+  /* ── Pink ──────────────────────────────────────────────────────────── */
+  --color-pink-50:  #FFF6FD;
+  --color-pink-100: #FFE2F7;
+  --color-pink-200: #FFB9EC;
+  --color-pink-300: #FF90E0;
+  --color-pink-400: #FF5DD2;
+  --color-pink-500: #FF3ECA;
+  --color-pink-600: #FF16BE;
+  --color-pink-700: #EC00AB;
+  --color-pink-800: #C3008D;
+  --color-pink-900: #A30076;
+  --color-pink-950: #7A0058;
+
+  /* ── Success / Warning / Danger ────────────────────────────────────── */
+  --color-success-50:  #F9FFFB; --color-success-100: #F0FDF4;
+  --color-success-200: #DDFBE8; --color-success-300: #BDF5D3;
+  --color-success-400: #8AEBB0; --color-success-500: #4FD985;
+  --color-success-600: #28BF65; --color-success-700: #1B9E4F;
+  --color-success-800: #1A8244; --color-success-900: #196237;
+  --color-success-950: #16512F;
+
+  --color-warning-50:  #FFFEF0; --color-warning-100: #FFFDE7;
+  --color-warning-200: #FFFBC1; --color-warning-300: #FFF286;
+  --color-warning-400: #FFE341; --color-warning-500: #FFCF0D;
+  --color-warning-600: #F0B400; --color-warning-700: #D18B00;
+  --color-warning-800: #A66202; --color-warning-900: #894C0A;
+  --color-warning-950: #743E0F;
+
+  --color-danger-50:  #FFF8F9;  --color-danger-100: #FFF0F2;
+  --color-danger-200: #FFE2E6;  --color-danger-300: #FFC9D3;
+  --color-danger-400: #FF9DAF;  --color-danger-500: #FF6685;
+  --color-danger-600: #FF3160;  --color-danger-700: #F00E4C;
+  --color-danger-800: #DE0546;  --color-danger-900: #AA073D;
+  --color-danger-950: #910A3A;
+
+  /* ── Semantic surfaces / text / borders ────────────────────────────── */
+  --bg-page:        var(--color-neutral-50);
+  --bg-surface:     var(--color-neutral-white);
+  --bg-subtle:      var(--color-neutral-100);
+  --bg-muted:       var(--color-neutral-200);
+
+  --fg-default:     var(--color-neutral-800);   /* body copy */
+  --fg-strong:      var(--color-neutral-950);   /* headings */
+  --fg-muted:       var(--color-neutral-600);
+  --fg-subtle:      var(--color-neutral-500);
+  --fg-on-brand:    var(--color-neutral-white);
+  --fg-link:        var(--color-primary-800);
+
+  --border-default: var(--color-neutral-200);
+  --border-strong:  var(--color-neutral-300);
+  --border-focus:   #9DC6FC;   /* Apollo --default-focus-ring */
+
+  /* Status semantics */
+  --bg-success:  var(--color-success-50);
+  --fg-success:  var(--color-success-800);
+  --bg-warning:  var(--color-warning-50);
+  --fg-warning:  var(--color-warning-800);
+  --bg-danger:   var(--color-danger-50);
+  --fg-danger:   var(--color-danger-800);
+  --bg-accent:   var(--color-accent-50);
+  --fg-accent:   var(--color-accent-800);
+
+  /* ── Typography ────────────────────────────────────────────────────── */
+  --font-display: 'Antonia', Georgia, 'Times New Roman', serif;     /* hero/marketing */
+  --font-sans:    'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono:    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Apollo headings (hybrid Tailwind config) */
+  --text-h1-size:   36px;  --text-h1-line: 40px;  --text-h1-weight: 700;
+  --text-h2-size:   30px;  --text-h2-line: 36px;  --text-h2-weight: 700;
+  --text-h3-size:   24px;  --text-h3-line: 32px;  --text-h3-weight: 700;
+  --text-h4-size:   18px;  --text-h4-line: 28px;  --text-h4-weight: 800;
+
+  /* Fresco scale (in-app) */
+  --text-body-size: 14px;  --text-body-line: 22px; --text-body-weight: 400;
+  --text-meta-size: 12px;  --text-meta-line: 16px; --text-meta-weight: 500;
+  --text-caps-size: 12px;  --text-caps-line: 16px; --text-caps-weight: 800;
+
+  /* Marketing display (Antonia, used for "Welcome to Degreed", login etc) */
+  --text-display-size: 48px;
+  --text-display-line: 1.05;
+  --text-display-weight: 900;
+
+  /* Font weights */
+  --weight-regular:    400;
+  --weight-medium:     500;
+  --weight-semibold:   590; /* Fresco's true semibold */
+  --weight-semibold-2: 600;
+  --weight-bold:       700;
+  --weight-extrabold:  800;
+  --weight-black:      900;
+
+  /* ── Radii / shadows / spacing (Apollo) ────────────────────────────── */
+  --radius-sm:   4px;
+  --radius-md:   6px;
+  --radius-lg:   8px;    /* default button + card */
+  --radius-xl:   12px;   /* large card / modal */
+  --radius-2xl:  16px;
+  --radius-pill: 9999px;
+
+  --shadow-none: 0 0 0 rgba(0,0,0,0);
+  --shadow-sm:   0 1px 2px rgba(53,60,66,0.08);
+  --shadow-md:   0 1px 2px rgba(53,60,66,0.24);
+  --shadow-lg:   0 4px 6px -1px rgba(53,60,66,0.10), 0 2px 4px -2px rgba(53,60,66,0.05);
+  --shadow-xl:   0 10px 15px -3px rgba(53,60,66,0.10), 0 4px 6px rgba(53,60,66,0.05);
+  --shadow-2xl:  0 20px 25px -5px rgba(53,60,66,0.10), 0 10px 10px rgba(53,60,66,0.04);
+
+  /* 4-px spacing scale (Tailwind default) */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px;  --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px;
+}
+
+/* =====================================================================
+ * Element-level defaults — opt in by adding `class="apollo"` on a root
+ * (mirrors how Apollo's hybrid mode applies a reset, not global preflight).
+ * ===================================================================== */
+.apollo, .apollo * { box-sizing: border-box; }
+
+.apollo {
+  font-family: var(--font-sans);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+  color: var(--fg-default);
+  background: var(--bg-page);
+}
+
+.apollo h1, .apollo .h1 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h1-size); line-height: var(--text-h1-line);
+  font-weight: var(--text-h1-weight); color: var(--fg-strong);
+  letter-spacing: -0.01em;
+}
+.apollo h2, .apollo .h2 {
+  font-size: var(--text-h2-size); line-height: var(--text-h2-line);
+  font-weight: var(--text-h2-weight); color: var(--fg-strong);
+}
+.apollo h3, .apollo .h3 {
+  font-size: var(--text-h3-size); line-height: var(--text-h3-line);
+  font-weight: var(--text-h3-weight); color: var(--fg-strong);
+}
+.apollo h4, .apollo .h4 {
+  font-size: var(--text-h4-size); line-height: var(--text-h4-line);
+  font-weight: var(--text-h4-weight); color: var(--fg-strong);
+}
+
+.apollo .display {
+  font-family: var(--font-display);
+  font-size: var(--text-display-size);
+  line-height: var(--text-display-line);
+  font-weight: var(--text-display-weight);
+  color: var(--color-primary-800);
+}
+
+.apollo .meta { font-size: var(--text-meta-size); line-height: var(--text-meta-line); color: var(--fg-muted); }
+.apollo .caps { font-size: var(--text-caps-size); line-height: var(--text-caps-line); font-weight: var(--text-caps-weight); text-transform: uppercase; letter-spacing: 0.02em; }
+.apollo code, .apollo .mono { font-family: var(--font-mono); font-size: 13px; }
+
+.apollo a { color: var(--fg-link); text-decoration: none; }
+.apollo a:hover { text-decoration: underline; }
