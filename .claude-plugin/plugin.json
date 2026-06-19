@@ -1,7 +1,7 @@
 {
   "name": "superpowers",
   "description": "Superpowers core skills (TDD, debugging, collaboration) plus the maestro-ai-native pipeline: 40 Maestro skills, 7 agents, 10 commands, and opt-in hooks for Jira-Epic-to-PR feature delivery.",
-  "version": "6.1.0-maestro.1",
+  "version": "6.0.3-maestro.1",
   "author": {
     "name": "Ernest Jeba (fork of obra/superpowers)",
     "email": "ernest.jeba@gmail.com"
